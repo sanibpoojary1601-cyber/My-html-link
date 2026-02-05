@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>A Special Valentine</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+body {
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  background: linear-gradient(135deg, #ff758c, #ff7eb3);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Segoe UI', sans-serif;
+  overflow: hidden;
+}
+
+.card {
+  background: rgba(255,255,255,0.15);
+  backdrop-filter: blur(12px);
+  border-radius: 25px;
+  padding: 25px;
+  width: 90%;
+  max-width: 400px;
+  text-align: center;
+  box-shadow: 0 0 40px rgba(255,0,100,0.6);
+  animation: pop 1.5s ease;
+}
+
+@keyframes pop {
+  0% {transform: scale(0);}
+  100% {transform: scale(1);}
+}
+
+h1 {
+  color: #fff;
+  font-size: 28px;
+  margin-bottom: 10px;
+}
+
+p {
+  color: #fff;
+  font-size: 17px;
+  line-height: 1.6;
+}
+
+button {
+  margin-top: 15px;
+  padding: 12px 25px;
+  border: none;
+  border-radius: 30px;
+  background: #fff;
+  color: #ff4f81;
+  font-size: 16px;
+  cursor: pointer;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+}
+
+button:hover {
+  transform: scale(1.05);
+}
+
+.hidden {
+  display: none;
+}
+
+img {
+  width: 100%;
+  border-radius: 20px;
+  margin-top: 15px;
+}
+
+.heart {
+  position: absolute;
+  color: #fff;
+  font-size: 20px;
+  animation: float 6s linear infinite;
+}
+
+@keyframes float {
+  0% {transform: translateY(100vh);}
+  100% {transform: translateY(-10vh);}
+}
+</style>
+</head>
+
+<body>
+
+<div class="card" id="card1">
+  <h1>💌 A Valentine Just For You</h1>
+  <p>
+    Some gifts are bought…🛍️🎁💖<br>
+    Some are wrapped…🎀✨📦<br><br>
+    But this one is created with feelings🥹,<br>
+    just to make you smile today 💖
+  </p>
+  <button onclick="nextCard()">Open🎀💝</button>
+</div>
+
+<div class="card hidden" id="card2">
+  <h1>✨ A Little Magic ✨</h1>
+  <p>
+    If love had a language💌,<br>
+    it would say this quietly🤍✨:<br><br>
+    “You matter more than you know.🥺🫶🏻”<br>
+    “You are special, always💗♾️.” 
+  </p>
+  <img src="https://media.giphy.com/media/MAl6ITVxHFqdmotPxH/giphy.gif" 
+     alt="Pembe the Pink Cat GIF" 
+     style="width:300px; height:auto;">
+  <button onclick="nextCard()">One More 💗</button>
+</div>
+
+<div class="card hidden" id="card3">
+  <h1>❤️Happy Valentine’s Day❤️</h1>
+  <p>
+    Today is not about roses or chocolates..🌹🍫<br><br>
+    It’s about reminding you that somewhere🌍💭,<br>
+    someone chose you with their whole heart ♾️💞<br><br>
+    And this heart… chose you, always.❤️🫶
+     </p><img src="https://media.giphy.com/media/n9HfdJCqnh01e99KtB/giphy.gif" 
+     alt="Cute Cat Hug I Love You GIF" 
+     style="width:300px; height:auto;"><img src="https://tenor.com/en-IN/view/cute-gif-6961149989933780747">
+  
+</div>
+
+<script>
+let current = 1;
+
+function nextCard() {
+  document.getElementById("card" + current).classList.add("hidden");
+  current++;
+  document.getElementById("card" + current).classList.remove("hidden");
+}
+
+for (let i = 0; i < 30; i++) {
+  let heart = document.createElement("div");
+  heart.className = "heart";
+  heart.innerHTML = "❤️";
+  heart.style.left = Math.random() * 100 + "vw";
+  heart.style.animationDuration = (Math.random() * 3 + 4) + "s";
+  document.body.appendChild(heart);
+}
+</script>
+
+</body>
+</html>
